@@ -1,0 +1,49 @@
+.tox .tox-tbtn svg {
+  fill: #606266;
+}
+
+.tox .tox-button {
+  background-color: #409eff;
+  border-color: #409eff;
+  font-weight: 500;
+}
+
+.tox .tox-button:hover:not(:disabled) {
+  background-color: #66b1ff;
+  border-color: #66b1ff;
+}
+
+.tox .tox-button--naked {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: unset;
+  color: #222f3e;
+}
+
+.tox .tox-button--secondary {
+  background-color: #ffffff;
+  border-color: #dcdfe6;
+}
+
+.tox .tox-dialog__body-nav-item--active {
+  color: #409eff;
+  border-color: #409eff;
+}
+
+.tox .tox-button--naked.tox-button--icon:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #409eff;
+}
+
+.tox .tox-button--secondary:hover:not(:disabled) {
+  color: #409eff;
+  border-color: #c6e2ff;
+  background-color: #ecf5ff;
+}
+
+.tox .tox-listboxfield .tox-listbox--select:focus,
+.tox .tox-textarea:focus,
+.tox .tox-textfield:focus {
+  border-color: #409eff;
+}

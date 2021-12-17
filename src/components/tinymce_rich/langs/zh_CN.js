@@ -433,4 +433,5 @@ tinymce.addI18n('zh_CN',{
 "Alternative description": "替代说明文字",
 "Accessibility": "可访问性",
 "Image is decorative": "仅用于装饰",
+"Line height":"行高",
 });

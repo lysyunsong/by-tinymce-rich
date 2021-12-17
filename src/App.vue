@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <Tinymce-rich ref="rich" :options="options" width="auto" />
+    <Tinymce-rich
+      ref="rich"
+      v-model="content"
+      :options="options"
+    />
   </div>
 </template>
 
@@ -13,12 +17,30 @@ export default {
   },
   data() {
     return {
+      content: "",
       options: {
-        automatic_uploads: false,
+        images_upload_url: "/dev-api/sys/file/upload",
+        video_upload_url: "/dev-api/sys/file/upload",
+        image_formdata_name: "file",
+        video_formdata_name: "file",
+        fileRequestHeader: [
+          {
+            name: "token",
+            value: "xxxxx",
+          },
+        ],
+        image_data_format(res) {
+          return "/uploadImage/" + res.data.savePath;
+        },
+        video_data_format(res) {
+          return "/uploadImage/" + res.data.savePath;
+        },
       },
     };
   },
-  mounted() {},
+  mounted() {
+
+  },
 };
 </script>
 

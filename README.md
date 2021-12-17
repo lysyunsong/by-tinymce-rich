@@ -24,7 +24,7 @@ npm run build
 ```
 <template>
   <div id="app">
-    <Tinymce-rich v-model="content" :options="options" width=“100px” />
+    <Tinymce-rich v-model="content" :options="options" />
   </div>
 </template>
 
@@ -61,7 +61,6 @@ export default {
 }
 </script>
 ```
-
 ## 编辑器的基本配置：
 
 - content（富文本内容）
@@ -85,3 +84,4 @@ export default {
 ### 更多配置
 
 go [文档资料出处](http://tinymce.ax-z.cn/)
+=======

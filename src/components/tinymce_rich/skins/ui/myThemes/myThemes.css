@@ -47,3 +47,6 @@
 .tox .tox-textfield:focus {
   border-color: #409eff;
 }
+.tox-tinymce-aux{
+  z-index: 5000!important;
+}

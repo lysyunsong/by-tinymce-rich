@@ -60,7 +60,7 @@ export default {
       let $this = this;
       let options = {
         selector: "#tinymce_rich",
-        language: "zh_CN",
+        language: $this.options.lang||'zh_CN',
         plugins: plugins,
         toolbar: this.toolbar,
         emoticons_database_url: "./static/plugins/emoticons/js/emojis.js",
@@ -200,4 +200,5 @@ export default {
 /* @import url("./skins/ui/oxide-dark/skin.min.css"); */
 @import url("./skins/ui/oxide/skin.min.css");
 @import url("./skins/ui/myThemes/myThemes.css");
+
 </style>

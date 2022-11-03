@@ -43,6 +43,7 @@ export default {
         video_upload_url: "sys/file/upload",
         image_formdata_name: "file",
         video_formdata_name: "file",
+        emoticons_database_url:"./plugins/emoticons/js/emojis.js", //表情引入找不到路径问题，需要通过更改路径重新引入，并将插件放在public中
         fileRequestHeader: [
           {
             name: "token",

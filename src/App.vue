@@ -4,6 +4,7 @@
       ref="rich"
       v-model="content"
       :options="options"
+      :height="500"
     />
   </div>
 </template>

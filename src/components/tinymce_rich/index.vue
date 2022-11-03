@@ -1,5 +1,5 @@
 <template>
-  <textarea id="tinymce_rich">{{ value }}</textarea>
+  <textarea :id="id" class="tinymce_rich">{{ value }}</textarea>
 </template>
 
 <script>
@@ -23,6 +23,10 @@ export default {
       default() {
         return toolbar;
       },
+    },
+    id: {
+      type: String,
+      default: "tinymce_rich",
     },
     value: {
       type: String,
@@ -48,29 +52,29 @@ export default {
       tinymce: null,
     };
   },
-  created() {},
+  created() { },
   mounted() {
     this.init();
   },
   beforeDestroy() {
-    this.tinymce.destroy();
+    this.tinymce && this.tinymce.destroy();
   },
   methods: {
     init() {
       let $this = this;
+      console.log(this.options)
       let options = {
-        selector: "#tinymce_rich",
-        language: $this.options.lang||'zh_CN',
-        plugins: plugins,
+        selector: '#' + this.id,
+        language: $this.options.lang || 'zh_CN',
+        plugins: this.options.plugins || plugins,
         toolbar: this.toolbar,
-        emoticons_database_url: "./static/plugins/emoticons/js/emojis.js",
+        emoticons_database_url: this.options.emoticons_database_url || process.env.BASE_URL ? process.env.BASE_URL : '' + "/dist/plugins/emoticons/js/emojis.js",
         width: this.width,
-        height:this.height,
+        height: this.height,
         file_picker_types: "media",
         media_live_embeds: true,
-        content_css: "./static/skins/content/default/content.min.css",
+        content_css: this.options.content_css || "/dist/skins/content/default/content.min.css",
         paste_data_images: true,
-        skin_url: "./static/skins/ui/oxide",
         images_upload_handler(blobInfo, success, failure) {
           $this
             .uploadFile(
@@ -123,6 +127,7 @@ export default {
         },
       };
       Object.assign(options, this.options);
+      console.log(JSON.parse(JSON.stringify(options)))
       tinymce.init(options);
     },
     uploadVideo(url, fileName, format, file) {
@@ -155,7 +160,7 @@ export default {
           formData = new FormData();
           formData.append(fileName || "file", file);
           xhr.send(formData);
-        } catch (error) {}
+        } catch (error) { }
       });
     },
     uploadFile(url, fileName, format, blobInfo) {
@@ -200,5 +205,4 @@ export default {
 /* @import url("./skins/ui/oxide-dark/skin.min.css"); */
 @import url("./skins/ui/oxide/skin.min.css");
 @import url("./skins/ui/myThemes/myThemes.css");
-
 </style>
